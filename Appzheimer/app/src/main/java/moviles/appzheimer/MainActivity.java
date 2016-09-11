@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void verDatosBasicos(View v)
+    {
+
     }
 
     public void reconocerVoz(View v)
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     {
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK)
         {
-
+            Log.d("Hola", "Hola");
         }
     }
 

@@ -20,16 +20,25 @@
         android:layout_height="wrap_content"
         android:text="Registrar voz"
         android:id="@+id/registrarVoz"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/datosBasicos"
+        android:layout_centerHorizontal="true"
+        android:onClick="verDatosBasicos"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reconocer Voz"
         android:id="@+id/reconocerVoz"
-        android:layout_marginTop="26dp"
+        android:onClick="reconocerVoz"
         android:layout_below="@+id/registrarVoz"
-        android:layout_centerHorizontal="true"
-        android:onClick="reconocerVoz"/>
+        android:layout_alignStart="@+id/registrarVoz" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datos Basicos"
+        android:id="@+id/datosBasicos"
+        android:layout_marginTop="51dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignEnd="@+id/registrarVoz" />
 </RelativeLayout>
