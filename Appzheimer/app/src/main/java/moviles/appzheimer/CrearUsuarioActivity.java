@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -58,7 +59,7 @@ public class CrearUsuarioActivity extends AppCompatActivity {
         try{
             InputStream archivo = openFileInput(DATOSUSUARIO);
             if(archivo!=null)
-            {
+                {
                 InputStreamReader temp = new InputStreamReader(archivo);
                 BufferedReader lector = new BufferedReader(temp);
                 String linea = lector.readLine();
@@ -149,6 +150,7 @@ public class CrearUsuarioActivity extends AppCompatActivity {
             impresora.write(fechaNacimieto);
             impresora.write(lineaNueva);
             impresora.write(direccionUsuario);
+            impresora.close();
         }
         catch (Exception e) {
             Log.i("Archivo","No se ecribio");
