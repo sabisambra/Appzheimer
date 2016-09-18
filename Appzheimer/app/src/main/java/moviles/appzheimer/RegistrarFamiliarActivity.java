@@ -84,7 +84,7 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             Uri fotoNueva = data.getData();
             imagen.setImageBitmap(imageBitmap);
-            rutaimagen = getPath(fotoNueva);
+            //rutaimagen = getPath(fotoNueva);
         }
     }
 
@@ -119,17 +119,21 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
         Intent intent = new Intent(this,FamiliaresActivity.class);
         try
         {
+            Log.i("Poraqui paso:", "jajaja");
             OutputStreamWriter impresora = new OutputStreamWriter(openFileOutput(FamiliaresActivity.DATOS_FAMILIARES, MODE_APPEND));
             EditText nombre = (EditText) findViewById(R.id.editNombreFamiliarNuevo);
             EditText parentesco = (EditText) findViewById(R.id.editParentescoFamiliarNuevo);
+            impresora.write(lineaNueva);
             impresora.write(nombre.getText().toString());
             impresora.write(lineaNueva);
             impresora.write(parentesco.getText().toString());
+            impresora.write(lineaNueva);
             impresora.write(rutaimagen);
             impresora.close();
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             new AlertDialog.Builder(this).setTitle("Error").setMessage(e.getMessage()).setNeutralButton("Cerrar", null).show();
         }
         startActivity(intent);

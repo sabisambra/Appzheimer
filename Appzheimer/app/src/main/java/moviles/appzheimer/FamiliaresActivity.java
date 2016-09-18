@@ -1,11 +1,9 @@
 package moviles.appzheimer;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +20,7 @@ import java.util.ArrayList;
 
 import mundo.Familiar;
 
-public class FamiliaresActivity extends AppCompatActivity {
+public class FamiliaresActivity extends ActionBarActivity {
 
     /**
      * Constante con el nombre del file donde se va a guardar la informacion de los familiares
@@ -62,6 +60,7 @@ public class FamiliaresActivity extends AppCompatActivity {
                 InputStreamReader temp = new InputStreamReader(archivo);
                 BufferedReader lector = new BufferedReader(temp);
                 String linea = lector.readLine();
+                linea = lector.readLine();
                 int cantidadLineas = 1;
                 Familiar fam = new Familiar();
                 while(linea!=null && linea!="")
@@ -86,6 +85,7 @@ public class FamiliaresActivity extends AppCompatActivity {
                         fam.setRutaImagen(linea);
                         familiaresMundo.add(fam);
                     }
+                    Log.i("Lee:", linea);
                     linea = lector.readLine();
                 }
             }
@@ -102,11 +102,18 @@ public class FamiliaresActivity extends AppCompatActivity {
         familiares = (ListView) findViewById(R.id.ListFamiliares);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.lista_item, R.id.labelLista, nombreFamiliares);
         familiares.setAdapter(adapter);
-        /**familiares.setOnClickListener(new OnItemClickListener() {
+        familiares.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            @Override
             public void onItemClick(AdapterView parent, View view, int position, long id) {
-                String familiarSeleccionado = ((TextView) view).getText().toString();
+                Log.i("Seleccion:", position+"");
+                Familiar familiarSeleccionado = familiaresMundo.get(position);
+                Intent j = new Intent(getApplicationContext(),DetalleFamiliarActivity.class);
+                j.putExtra("Nombre",familiarSeleccionado.getNombre());
+                j.putExtra("Relacion",familiarSeleccionado.getParentesco());
+                j.putExtra("Imagen",familiarSeleccionado.getRutaImagen());
+                startActivity(j);
             }
-        });*/
+        });
     }
 
     /**
@@ -123,7 +130,6 @@ public class FamiliaresActivity extends AppCompatActivity {
      * @param v
      */
     public void verFamiliar(View v) {
-
     }
 
     public void volverMenuPrincipal(View v)
