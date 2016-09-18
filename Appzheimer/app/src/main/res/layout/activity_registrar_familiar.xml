@@ -46,14 +46,6 @@
         android:id="@+id/btnFotoFamiliar"
         android:onClick="agregarFotoFamiliar"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NO PHOTO HAS BEEN SAFE"
-        android:id="@+id/textFotoTomada"
-        android:textSize="20dp"
-        android:textIsSelectable="true" />
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

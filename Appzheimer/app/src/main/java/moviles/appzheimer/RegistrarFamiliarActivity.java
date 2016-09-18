@@ -15,6 +15,8 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
      */
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    private ImageView imagen;
+
     /**
      * Metodo que crea la vista
      * @param savedInstanceState
@@ -23,6 +25,7 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_familiar);
+        imagen = (ImageView) findViewById(R.id.imagenFamiliarNuevo);
     }
 
     /**
@@ -59,7 +62,6 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
         {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            ImageView imagen = (ImageView) findViewById(R.id.imagenFamiliarNuevo);
             imagen.setImageBitmap(imageBitmap);
         }
     }
