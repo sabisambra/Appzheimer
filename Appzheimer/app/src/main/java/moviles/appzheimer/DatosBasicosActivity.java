@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -54,15 +55,17 @@ public class DatosBasicosActivity extends ActionBarActivity {
             new AlertDialog.Builder(this).setTitle("Error").setMessage(e.getMessage()).setNeutralButton("Cerrar", null).show();
         }
         diasSemana = new String[7];
+        diasSemana[0] = "Domingo";
         diasSemana[1] = "Lunes";
         diasSemana[2] = "Martes";
         diasSemana[3] = "Miercoles";
         diasSemana[4] = "Jueves";
         diasSemana[5] = "Viernes";
         diasSemana[6] = "Sabado";
-        diasSemana[0] = "Domingo";
         calendario = Calendar.getInstance();
-        diaFecha.setText(diasSemana[calendario.get(Calendar.DAY_OF_WEEK)] + " " + calendario.get(Calendar.DAY_OF_MONTH));
+        Log.i("Dia",calendario.get(Calendar.DAY_OF_WEEK)+"");
+        Log.i("Dia",calendario.get(Calendar.YEAR)+"");
+        diaFecha.setText(diasSemana[calendario.get(Calendar.DAY_OF_WEEK)-1] + " " + calendario.get(Calendar.DAY_OF_MONTH));
         meses = new String[12];
         meses[0] = "Enero";
         meses[1] = "Febrero";
