@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FamiliaresActivity"></activity>
+        <activity android:name=".FamiliaresActivity" />
+        <activity android:name=".RegistrarFamiliarActivity"></activity>
     </application>
 
 </manifest>

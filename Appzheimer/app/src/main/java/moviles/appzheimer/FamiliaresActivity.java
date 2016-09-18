@@ -2,6 +2,7 @@ package moviles.appzheimer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 public class FamiliaresActivity extends AppCompatActivity {
@@ -16,9 +17,31 @@ public class FamiliaresActivity extends AppCompatActivity {
      */
     private ListView familiares;
 
+    /**
+     * Metodo que crea la vista de los familiares
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_familiares);
     }
+
+    /**
+     * Metodo para agregar un familiar
+     */
+    public void agregarFamiliar(View v)
+    {
+
+    }
+
+    /**
+     * Metodo para ver el detalle del familiar seleccionado
+     * @param v
+     */
+    public void verFamiliar(View v)
+    {
+
+    }
+
 }
