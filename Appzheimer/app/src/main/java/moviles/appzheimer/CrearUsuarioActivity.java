@@ -48,6 +48,10 @@ public class CrearUsuarioActivity extends AppCompatActivity {
      */
     private int year, month, day;
 
+    /**
+     * Metodo que crea la vista
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +105,10 @@ public class CrearUsuarioActivity extends AppCompatActivity {
         dateView.setText(new StringBuilder().append(pDay).append("/").append(pMonth).append("/").append(pYear));
     }
 
+    /**
+     * Metodo que sirve para crear el dialogo y cambiar la fecha de nacimiento
+     * @param v
+     */
     @SuppressWarnings("deprecation")
     public void ajustarFechaNacimiento(View v)
     {
@@ -108,6 +116,11 @@ public class CrearUsuarioActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),"ca",Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Metodo que crea el dialogo con el calendario
+     * @param id
+     * @return
+     */
     @Override
     protected Dialog onCreateDialog(int id)
     {
@@ -118,6 +131,9 @@ public class CrearUsuarioActivity extends AppCompatActivity {
         return null;
     }
 
+    /**
+     * Metodo que crear el date picker
+     */
     private DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener(){
         @Override
         public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3)
@@ -155,6 +171,7 @@ public class CrearUsuarioActivity extends AppCompatActivity {
         catch (Exception e) {
             Log.i("Archivo","No se ecribio");
         }
+        intent.putExtra("Nombre usuario", nombreUsuario);
         startActivity(intent);
     }
 }

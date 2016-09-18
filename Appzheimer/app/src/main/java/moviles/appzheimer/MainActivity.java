@@ -9,19 +9,47 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE = 1234;
 
+    /**
+     *Metodo que crea la vista
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textoBienvenida = (TextView) findViewById(R.id.textBienvenida);
+        try
+        {
+            InputStream archivo = openFileInput(CrearUsuarioActivity.DATOSUSUARIO);
+            if(archivo!=null)
+            {
+                InputStreamReader temp = new InputStreamReader(archivo);
+                BufferedReader lector = new BufferedReader(temp);
+                textoBienvenida.setText(lector.readLine());
+            }
+        }
+        catch(Exception e)
+        {
+            new AlertDialog.Builder(this).setTitle("Error").setMessage(e.getMessage()).setNeutralButton("Cerrar", null).show();
+        }
     }
 
+    /**
+     * Metodo para crear el menu
+     * @param menu el menu que se va a crear
+     * @return true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -29,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         return  true;
     }
 
+    /**
+     * Metodo para que los elementos del menu funciones
+     * @param item el item que se selecciono
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -51,12 +84,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    /**
+     * Metodo que inicia la actividad para ver los datos basicos del usuario
+     * @param v la vista con los datos basicos
+     */
     public void verDatosBasicos(View v)
     {
-
+        Intent intent = new Intent(this,DatosBasicosActivity.class);
+        startActivity(intent);
     }
 
+    /**
+     * Metodo que sirve para reconocer la voz de una persona
+     * @param v la vista que se va a mostrar
+     */
     public void reconocerVoz(View v)
     {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -65,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent,REQUEST_CODE);
     }
 
+    /**
+     * Meotdo para poder intepretar lo que el usuario dijo
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         if(requestCode == REQUEST_CODE && resultCode == RESULT_OK)
