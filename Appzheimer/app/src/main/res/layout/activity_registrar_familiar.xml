@@ -7,7 +7,66 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="moviles.appzheimer.RegistrarFamiliarActivity">
+    android:orientation="vertical"
+    tools:context="moviles.appzheimer.RegistrarFamiliarActivity"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:id="@+id/textView11"
+        android:textSize="30dp"
+        android:textIsSelectable="false" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:id="@+id/editNombreFamiliarNuevo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parentesco:"
+        android:id="@+id/textView12"
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editParentescoFamiliarNuevo"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar Foto"
+        android:id="@+id/btnFotoFamiliar"
+        android:onClick="agregarFotoFamiliar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO PHOTO HAS BEEN SAFE"
+        android:id="@+id/textFotoTomada"
+        android:textSize="20dp"
+        android:textIsSelectable="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagenFamiliarNuevo"
+        android:layout_weight="0.12"
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar Familiar"
+        android:id="@+id/btnGuardarFamiliar"
+        android:onClick="registrarFamiliar" />
 
 
 
