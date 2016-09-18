@@ -3,10 +3,16 @@ package moviles.appzheimer;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
 
 public class RegistrarFamiliarActivity extends AppCompatActivity {
 
@@ -73,7 +79,17 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
     public void registrarFamiliar(View v)
     {
         Intent intent = new Intent(this,FamiliaresActivity.class);
-
+        try
+        {
+            OutputStreamWriter impresora = new OutputStreamWriter(openFileOutput(FamiliaresActivity.DATOS_FAMILIARES, MODE_APPEND));
+            EditText nombre = (EditText) findViewById(R.id.editNombreFamiliarNuevo);
+            EditText parentesco = (EditText) findViewById(R.id.editParentescoFamiliarNuevo);
+            impresora.write(nombre.getText().toString());
+        }
+        catch (Exception e)
+        {
+            new AlertDialog.Builder(this).setTitle("Error").setMessage(e.getMessage()).setNeutralButton("Cerrar", null).show();
+        }
         startActivity(intent);
     }
 

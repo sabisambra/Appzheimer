@@ -49,7 +49,6 @@
         android:text="Ver Familiares"
         android:id="@+id/familiares"
         android:onClick="verFamiliares"
-        android:layout_marginTop="51dp"
         android:layout_below="@+id/reconocerVoz"
         android:layout_alignEnd="@+id/registrarVoz" />
 </RelativeLayout>
