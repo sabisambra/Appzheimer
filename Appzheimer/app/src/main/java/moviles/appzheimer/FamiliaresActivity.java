@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,15 +62,40 @@ public class FamiliaresActivity extends AppCompatActivity {
                 InputStreamReader temp = new InputStreamReader(archivo);
                 BufferedReader lector = new BufferedReader(temp);
                 String linea = lector.readLine();
-                while (linea != null) {
-                    nombreFamiliares.add(linea);
+                int cantidadLineas = 1;
+                Familiar fam = new Familiar();
+                while(linea!=null && linea!="")
+                {
+                    //Se lee un nombre
+                    if(cantidadLineas==1)
+                    {
+                        nombreFamiliares.add(linea);
+                        fam.setNombre(linea);
+                        cantidadLineas++;
+                    }
+                    //Se lee el parentesco
+                    else if (cantidadLineas==2)
+                    {
+                        cantidadLineas++;
+                        fam.setParentesco(linea);
+                    }
+                    //Se esta leyendo la ruta de una imagen
+                    else
+                    {
+                        cantidadLineas = 1;
+                        fam.setRutaImagen(linea);
+                        familiaresMundo.add(fam);
+                    }
+                    linea = lector.readLine();
                 }
-            } else {
+            }
+            else
+            {
 
             }
             archivo.close();
         } catch (Exception e) {
-            new AlertDialog.Builder(this).setTitle("Error").setMessage(e.getMessage()).setNeutralButton("Cerrar", null).show();
+            new AlertDialog.Builder(this).setTitle("Informacion").setMessage("En el momento no tienes familiares registrados").setNeutralButton("Cerrar", null).show();
         }
 
         //Se llena la lista de la interfaz
@@ -98,6 +124,12 @@ public class FamiliaresActivity extends AppCompatActivity {
      */
     public void verFamiliar(View v) {
 
+    }
+
+    public void volverMenuPrincipal(View v)
+    {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
 

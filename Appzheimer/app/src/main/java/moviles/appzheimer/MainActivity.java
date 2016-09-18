@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 OutputStreamWriter impresora = new OutputStreamWriter(openFileOutput(CrearUsuarioActivity.DATOSUSUARIO,0));
                 impresora.write("No hay sesion");
                 impresora.close();
+                deleteFile(FamiliaresActivity.DATOS_FAMILIARES);
             }
             catch (Exception e)
             {

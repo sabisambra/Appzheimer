@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text=""
+        android:text=" "
         android:id="@+id/editNombreFamiliarNuevo"/>
 
     <TextView
@@ -37,7 +37,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editParentescoFamiliarNuevo"/>
+        android:id="@+id/editParentescoFamiliarNuevo"
+        android:text=" " />
 
     <Button
         android:layout_width="match_parent"

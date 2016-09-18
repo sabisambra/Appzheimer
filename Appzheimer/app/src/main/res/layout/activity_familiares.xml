@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    tools:context="moviles.appzheimer.FamiliaresActivity">
+    tools:context="moviles.appzheimer.FamiliaresActivity"
+    android:weightSum="1">
 
 
     <TextView
@@ -22,10 +20,10 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="213dp"
         android:id="@+id/ListFamiliares"
-        android:padding="10dp"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:layout_weight="0.70" />
 
     <Button
         android:layout_width="match_parent"
@@ -33,5 +31,11 @@
         android:id="@+id/btnAgregarFamiliar"
         android:onClick="agregarFamiliar"
         android:text="Agregar Familiar"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnVolverMenuPrincipal"
+        android:onClick="volverMenuPrincipal"
+        android:text="Volver"/>
 </LinearLayout>
-</ScrollView>
