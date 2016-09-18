@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 InputStreamReader temp = new InputStreamReader(archivo);
                 BufferedReader lector = new BufferedReader(temp);
-                textoBienvenida.setText(lector.readLine());
+                textoBienvenida.setText("Hola " + lector.readLine());
             }
         }
         catch(Exception e)

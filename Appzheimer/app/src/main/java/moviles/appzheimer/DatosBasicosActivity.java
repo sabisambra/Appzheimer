@@ -16,6 +16,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_basicos);
         TextView nombre = (TextView) findViewById(R.id.textNombreUsuarioDatosBasicos);
+        TextView edad = (TextView) findViewById(R.id.textEdadDatosBasicos);
         try
         {
             InputStream archivo = openFileInput(CrearUsuarioActivity.DATOSUSUARIO);
@@ -24,6 +25,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
                 InputStreamReader temp = new InputStreamReader(archivo);
                 BufferedReader lector = new BufferedReader(temp);
                 nombre.setText(lector.readLine());
+                edad.setText(lector.readLine());
             }
         }
         catch(Exception e)

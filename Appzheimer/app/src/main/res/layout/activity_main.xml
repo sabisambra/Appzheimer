@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Datos Basicos"
         android:id="@+id/datosBasicos"
+        android:onClick="verDatosBasicos"
         android:layout_marginTop="51dp"
         android:layout_below="@+id/textView"
         android:layout_alignEnd="@+id/registrarVoz" />

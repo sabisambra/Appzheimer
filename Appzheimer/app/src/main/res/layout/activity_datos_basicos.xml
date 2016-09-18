@@ -35,5 +35,36 @@
         android:id="@+id/textNombreUsuarioDatosBasicos"
         android:layout_below="@+id/textNombreDatosBasicos"
         android:layout_alignParentStart="true"
-        android:textColor="#f01717" />
+        android:textColor="#f01717"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Y tienes "
+        android:id="@+id/textComienzoEdad"
+        android:textSize="30dp"
+        android:layout_below="@+id/textNombreUsuarioDatosBasicos"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textEdadDatosBasicos"
+        android:layout_below="@+id/textNombreUsuarioDatosBasicos"
+        android:layout_toEndOf="@+id/textComienzoEdad"
+        android:textColor="#f01717"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Años"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textNombreUsuarioDatosBasicos"
+        android:layout_toEndOf="@+id/textEdadDatosBasicos"
+        android:textAlignment="inherit"
+        android:textSize="30dp"
+        android:textIsSelectable="false" />
 </RelativeLayout>
