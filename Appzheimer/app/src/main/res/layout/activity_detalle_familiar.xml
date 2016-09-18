@@ -6,26 +6,42 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    tools:context="moviles.appzheimer.DetalleFamiliarActivity">
+    tools:context="moviles.appzheimer.DetalleFamiliarActivity"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nombre"
         android:id="@+id/textNombreDetalle"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Relacion"
         android:id="@+id/textRelacionDetalle"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Imagen"
         android:id="@+id/textImagenDetalle"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
+
+    <ImageView
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagenFamiliarDetalle"
+        android:layout_weight="0.86"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        android:id="@+id/VolverFamiliares"
+        android:layout_gravity="center_horizontal"
+        android:onClick="volverFamiliares"/>
 </LinearLayout>

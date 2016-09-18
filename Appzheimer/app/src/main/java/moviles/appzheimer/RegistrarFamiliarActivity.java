@@ -1,5 +1,6 @@
 package moviles.appzheimer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -13,6 +14,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -82,31 +85,28 @@ public class RegistrarFamiliarActivity extends AppCompatActivity {
         {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            Uri fotoNueva = data.getData();
             imagen.setImageBitmap(imageBitmap);
-            //rutaimagen = getPath(fotoNueva);
+            Uri tempUri = getImageUri(getApplicationContext(),imageBitmap);
+            File finalFile = new File(getRealPathFromURI(tempUri));
+            rutaimagen = finalFile.getAbsolutePath();
+            Log.i("NombreFile",finalFile.getAbsolutePath());
         }
     }
 
-    public String getPath(Uri uri)
+    public Uri getImageUri(Context inContext, Bitmap imagenP)
     {
-        // just some safety built in
-        if( uri == null ) {
-            // TODO perform some logging or show user feedback
-            return null;
-        }
-        // try to retrieve the image from the media store first
-        // this will only work for images selected from gallery
-        String[] projection = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        if( cursor != null ){
-            int column_index = cursor
-                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        }
-        // this is our fallback here
-        return uri.getPath();
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        imagenP.compress(Bitmap.CompressFormat.JPEG,100,bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(),imagenP,"TituloImagen",null);
+        return Uri.parse(path);
+    }
+
+    public String getRealPathFromURI(Uri URI)
+    {
+        Cursor cursor = getContentResolver().query(URI,null,null,null,null);
+        cursor.moveToFirst();
+        int indice = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+        return cursor.getString(indice);
     }
 
     /**

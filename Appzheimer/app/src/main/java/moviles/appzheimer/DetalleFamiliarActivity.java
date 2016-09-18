@@ -1,11 +1,21 @@
 package moviles.appzheimer;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+
+import mundo.Familiar;
+
 public class DetalleFamiliarActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +36,16 @@ public class DetalleFamiliarActivity extends AppCompatActivity {
         }
         else
         {
-            
+            imagen.setVisibility(View.INVISIBLE);
         }
+        ImageView imagenJPG = (ImageView) findViewById(R.id.imagenFamiliarDetalle);
+        Bitmap foto = BitmapFactory.decodeFile(imagenIntent);
+        imagenJPG.setImageBitmap(foto);
+    }
+
+    public void volverFamiliares(View v)
+    {
+        Intent intent = new Intent(this, FamiliaresActivity.class);
+        startActivity(intent);
     }
 }

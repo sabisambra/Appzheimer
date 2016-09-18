@@ -81,7 +81,6 @@
         android:id="@+id/direccionResidencia"
         android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="60dp"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -90,8 +89,7 @@
         android:text="Crear Perfil"
         android:id="@+id/crearPerfil"
         android:onClick="crearUsuario"
-        android:layout_marginBottom="37dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/direccionResidencia"
         android:layout_centerHorizontal="true" />
 
     <TextView
