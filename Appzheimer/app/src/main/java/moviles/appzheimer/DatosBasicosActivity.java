@@ -1,6 +1,8 @@
 package moviles.appzheimer;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Calendar;
 
-public class DatosBasicosActivity extends AppCompatActivity {
+public class DatosBasicosActivity extends ActionBarActivity {
 
     /**
      * El calendario para poder traer los datos de la fecha

@@ -120,5 +120,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void verFamiliares(View v)
+    {
+        Intent intent = new Intent(this,FamiliaresActivity.class);
+        startActivity(intent);
+    }
+
 
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Appzheimer</string>
+    <string name="title_activity_familiares">FamiliaresActivity</string>
 </resources>
